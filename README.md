@@ -21,4 +21,6 @@ npm run build
 - [Webpack v5](https://webpack.js.org/)
 - [Babel v7](https://babeljs.io/)
 - [node.js >= v10](https://nodejs.org/en/)
+- [react.js >= v17](https://reactjs.org/)
+- [react-dom.js >= v17](https://reactjs.org/docs/react-dom.html)
 
