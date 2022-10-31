@@ -1,6 +1,6 @@
 # Webpack tutorial
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/2ZmXcZHUTNI/0.jpg)](https://youtu.be/2ZmXcZHUTNI)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/typ_j-y1PlQ/0.jpg)](https://youtu.be/typ_j-y1PlQ)
 
 
 ## :hammer: Install
