@@ -1,15 +1,7 @@
-.dogs-container {
-  .dogs-container-item {
-    display: flex;
-    gap: 0 20px;
+.custom-btn-class {
+  margin-left: 10px;
+}
 
-    &__name {
-      color: green;
-    }
-
-    &__image {
-      width: 40px;
-      height: 40px;
-    }
-  }
+.custom-btn-class2 {
+ cursor: pointer;
 }
