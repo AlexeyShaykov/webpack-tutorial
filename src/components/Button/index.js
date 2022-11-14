@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -22,6 +23,10 @@ const propTypes = {
 
   // @default 'button'
   type: PropTypes.oneOf(['button', 'reset', 'submit', null]),
+
+  TagName: PropTypes.elementType,
+
+  href: PropTypes.string,
 };
 
 const defaultProps = {
@@ -29,30 +34,35 @@ const defaultProps = {
   bgColor: 'white',
   classname: '',
   type: 'button',
+  TagName: 'button',
+  href: ''
 }
 
 import './index.scss';
 
-const Button = ({ size, bgColor, classname, onClick, children, ...rest }) => {
-
+const Button = React.forwardRef(({ size, bgColor, classname, onClick, children, TagName, href, ...rest }, ref) => {
   return (
-    <button
+    <TagName
       className={
         classNames('button-base',
           `button-base--${size}`,
           `button-base--${bgColor}`,
-          (Array.isArray(classname) ? classname.join(' ') : classname)
+          (Array.isArray(classname) ? classname.join(' ') : classname),
+          {'button-base--link': TagName === 'a'}
         )
       }
       {...rest}
       onClick={onClick}
+      ref={ref}
+      href={TagName === 'a' ? href : null}
     >
       {children}
-    </button>
+    </TagName>
   )
-};
+});
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
+Button.displayName =  'ButtonCustom';
 
 export default Button;
