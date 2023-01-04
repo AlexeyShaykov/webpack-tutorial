@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import './index.scss';
+
 const propTypes = {
   // Specifies a large, medium, small or mini
   // @type('mini'| 'sm'| 'lg'| 'auto')
@@ -27,6 +29,8 @@ const propTypes = {
   TagName: PropTypes.elementType,
 
   href: PropTypes.string,
+
+  children: PropTypes.node,
 };
 
 const defaultProps = {
@@ -35,34 +39,34 @@ const defaultProps = {
   classname: '',
   type: 'button',
   TagName: 'button',
-  href: ''
-}
+  href: '',
+  children: '',
+};
 
-import './index.scss';
-
-const Button = React.forwardRef(({ size, bgColor, classname, onClick, children, TagName, href, ...rest }, ref) => {
-  return (
-    <TagName
-      className={
-        classNames('button-base',
+const Button = React.forwardRef(({
+  size, bgColor, classname, onClick, children, TagName, href, ...rest
+}, ref) => (
+  <TagName
+    className={
+        classNames(
+          'button-base',
           `button-base--${size}`,
           `button-base--${bgColor}`,
           (Array.isArray(classname) ? classname.join(' ') : classname),
-          {'button-base--link': TagName === 'a'}
+          { 'button-base--link': TagName === 'a' },
         )
       }
-      {...rest}
-      onClick={onClick}
-      ref={ref}
-      href={TagName === 'a' ? href : null}
-    >
-      {children}
-    </TagName>
-  )
-});
+    {...rest}
+    onClick={onClick}
+    ref={ref}
+    href={TagName === 'a' ? href : null}
+  >
+    {children}
+  </TagName>
+));
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
-Button.displayName =  'ButtonCustom';
+Button.displayName = 'ButtonCustom';
 
 export default Button;
