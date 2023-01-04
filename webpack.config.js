@@ -12,7 +12,8 @@ module.exports = {
     alias: {
       asserts: path.resolve(__dirname, './src/asserts'),
       extensions: ['.js'],
-    }
+    },
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     port: '3000',
@@ -22,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
